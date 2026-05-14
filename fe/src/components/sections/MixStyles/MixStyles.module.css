@@ -1,0 +1,292 @@
+.section {
+  padding: var(--space-10) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background-color: var(--color-bg-muted);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center 30%; 
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .image,
+.card:focus-visible .image {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card:hover .overlay,
+.card:focus-visible .overlay {
+  opacity: 1;
+}
+
+.exploreBtn {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-text-primary);
+  padding: var(--space-2) var(--space-5);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  transform: translateY(15px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover .exploreBtn,
+.card:focus-visible .exploreBtn {
+  transform: translateY(0);
+}
+
+.cardTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  transition: color var(--transition-fast);
+}
+
+.card:hover .cardTitle,
+.card:focus-visible .cardTitle {
+  color: var(--color-primary);
+}
+
+/* =========================================
+   MODAL GALLERY (Siêu mượt + Blur)
+   ========================================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: auto;
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modalVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.modalContent {
+  position: relative;
+  z-index: 1001;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-6) 0;
+  margin: auto 0;
+  transform: scale(0.95) translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s ease;
+}
+
+.modalVisible .modalContent {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+.modalTitle {
+  color: #fff;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin: 0 0 var(--space-6) 0;
+  text-align: center;
+}
+
+.closeBtn {
+  position: fixed;
+  top: var(--space-4);
+  right: var(--space-4);
+  z-index: 1002;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.closeBtn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(90deg);
+}
+
+.galleryScroll {
+  width: 100%;
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding: 0 var(--space-4) var(--space-6) var(--space-4);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.galleryScroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.galleryItem {
+  flex: 0 0 85vw;
+  max-width: 400px;
+  aspect-ratio: 3/4;
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  scroll-snap-align: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.galleryImage {
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: var(--space-12) 0;
+  }
+  
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+  }
+
+  .title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-base);
+  }
+  
+  .closeBtn {
+    top: 0;
+    right: var(--space-6);
+  }
+  
+  .galleryScroll {
+    gap: var(--space-8);
+    padding: 0 var(--space-10) var(--space-8) var(--space-10);
+    justify-content: center;
+  }
+  
+  .galleryItem {
+    flex: 0 0 auto;
+    width: 320px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--space-10);
+  }
+  
+  .grid {
+    gap: var(--space-8);
+  }
+  
+  .galleryItem {
+    width: 380px;
+  }
+}

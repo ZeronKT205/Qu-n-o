@@ -1,0 +1,130 @@
+.section {
+  padding: 0 0 var(--space-10);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 160px;
+  padding: var(--space-8) var(--space-6);
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  border-radius: var(--radius-sm);
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.banner:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.banner:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.bannerContent {
+  position: relative;
+  z-index: var(--z-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.bannerLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wider);
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.bannerTitle {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin: 0;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.bannerSubtitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
+  opacity: 0.8;
+}
+
+.bannerCta {
+  display: inline-block;
+  margin-top: var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-wide);
+  transition: letter-spacing var(--transition-base);
+}
+
+.banner:hover .bannerCta {
+  letter-spacing: var(--letter-spacing-wider);
+}
+
+.bannerAccent {
+  position: absolute;
+  right: var(--space-6);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 80px;
+  font-weight: var(--font-weight-bold);
+  opacity: 0.1;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bannerTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .banner {
+    min-height: 180px;
+    padding: var(--space-6) var(--space-5);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 0 0 var(--space-16);
+  }
+
+  .container {
+    padding: 0 var(--space-10);
+  }
+
+  .bannerTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .banner {
+    min-height: 200px;
+    padding: var(--space-8) var(--space-8);
+  }
+}

@@ -1,0 +1,311 @@
+/* VoucherModal.module.css */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: slideUpFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  padding: var(--space-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  transition: background-color 0.2s, color 0.2s;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background-color: var(--color-bg-muted);
+  color: var(--color-text-primary);
+}
+
+/* Left side - Voucher Info */
+.leftCol {
+  width: 40%;
+  background-color: #f7f3ec; /* Beige */
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+}
+
+.voucherLabel {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.voucherValue {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.voucherCondition {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ticketGraphic {
+  margin: var(--space-4) 0 var(--space-8);
+  display: flex;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.bulletList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: auto;
+}
+
+.bulletItem {
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.bulletIcon {
+  color: var(--color-text-primary);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bulletText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bulletTitle {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.bulletDesc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Right side - Form */
+.rightCol {
+  width: 60%;
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+}
+
+.formHeader {
+  margin-bottom: var(--space-6);
+}
+
+.formTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+}
+
+.formDesc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: var(--space-4);
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4) var(--space-3) calc(var(--space-4) * 2 + 20px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-family: inherit;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.row {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.row .inputGroup {
+  flex: 1;
+}
+
+.select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.selectIcon {
+  position: absolute;
+  right: var(--space-4);
+  pointer-events: none;
+  color: var(--color-text-secondary);
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--color-primary);
+}
+
+.checkboxLabel {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.link {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+}
+
+.submitBtn {
+  margin-top: var(--space-2);
+  background-color: var(--color-text-primary);
+  color: #fff;
+  border: none;
+  padding: var(--space-4);
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.submitBtn:hover {
+  background-color: #000;
+}
+
+.submitBtn:active {
+  transform: scale(0.98);
+}
+
+.securityNote {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  justify-content: center;
+}
+
+.securityText {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal {
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .leftCol, .rightCol {
+    width: 100%;
+    padding: var(--space-6);
+  }
+
+  .leftCol {
+    padding-bottom: var(--space-8);
+  }
+
+  .ticketGraphic {
+    margin: var(--space-4) 0;
+  }
+}

@@ -1,0 +1,229 @@
+/* ============================================
+   HeroBanner — Full-width slider
+   Ảnh sẽ tự quyết định chiều cao, luôn nằm sát dưới navbar
+   ============================================ */
+
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: #ede8e3; /* Matches beige tone of the hero images */
+}
+
+/* ===== Slider ===== */
+.sliderViewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.sliderTrack {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+/* Ảnh luôn full-width, chiều cao tự theo tỷ lệ gốc */
+.slideImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* ===== Navigation Arrows ===== */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius-full);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  padding: 0;
+}
+
+.arrow:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-md);
+}
+
+.arrow:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.arrow:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.arrowLeft {
+  left: var(--space-3);
+}
+
+.arrowRight {
+  right: var(--space-3);
+}
+
+/* ===== Dot Indicators ===== */
+.dots {
+  position: absolute;
+  bottom: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.55);
+  cursor: pointer;
+  padding: 0;
+  transition: background var(--transition-base), width var(--transition-base), border-color var(--transition-base);
+}
+
+.dotActive {
+  width: 24px;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.dot:hover:not(.dotActive) {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.dot:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ==============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================== */
+
+/* --- Small phones (≤ 479px) --- */
+@media (max-width: 479px) {
+  .arrow {
+    width: 28px;
+    height: 28px;
+  }
+
+  .arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .dots {
+    bottom: var(--space-2);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .dotActive {
+    width: 16px;
+  }
+}
+
+/* --- Tablets (768px – 1023px) --- */
+@media (min-width: 768px) {
+  .arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .arrowLeft {
+    left: var(--space-4);
+  }
+
+  .arrowRight {
+    right: var(--space-4);
+  }
+
+  .dots {
+    bottom: var(--space-4);
+    gap: 8px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dotActive {
+    width: 28px;
+  }
+}
+
+/* --- Desktop (≥ 1024px) --- */
+@media (min-width: 1024px) {
+  /* Trên desktop: full 100vh */
+  .sliderViewport {
+    height: 100vh;
+  }
+
+  .slideImage {
+    object-fit: cover;
+    object-position: center top;
+    height: 100vh;
+  }
+
+  .arrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .arrow svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .arrowLeft {
+    left: var(--space-6);
+  }
+
+  .arrowRight {
+    right: var(--space-6);
+  }
+
+  .dots {
+    bottom: var(--space-6);
+  }
+}
+
+/* --- Large Desktop (≥ 1440px) --- */
+@media (min-width: 1440px) {
+  .arrow {
+    width: 52px;
+    height: 52px;
+  }
+
+  .arrowLeft {
+    left: var(--space-10);
+  }
+
+  .arrowRight {
+    right: var(--space-10);
+  }
+}

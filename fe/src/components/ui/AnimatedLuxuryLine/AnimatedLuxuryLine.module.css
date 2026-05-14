@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-left: var(--space-3); /* Space between the text and the line */
+  flex: 1; /* Take up remaining space if in a flex row */
+}
+
+.lineWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Dot on left, line grows right */
+  width: 100%;
+}
+
+/* The dot at the left end */
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  flex-shrink: 0;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* This is the line that will grow to the right */
+.line {
+  height: 1px;
+  width: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), transparent);
+  transition: width 1s cubic-bezier(0.25, 1, 0.5, 1);
+  transform-origin: left center;
+}
+
+/* Animate state */
+.animate .dot {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.animate .line {
+  width: 100%;
+  max-width: 250px; /* Adjust this to determine how far the line goes */
+  transition-delay: 0.2s; /* Line starts drawing after the dot pops in */
+}
+
+@media (min-width: 768px) {
+  .animate .line {
+    max-width: 400px;
+  }
+}
