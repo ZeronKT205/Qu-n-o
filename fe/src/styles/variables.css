@@ -6,22 +6,22 @@
 
 :root {
   /* --- Color Palette --- */
-  --color-primary: #000000;
-  --color-primary-hover: #27272a;
-  --color-secondary: #52525b;
-  --color-muted: #71717a;
-  --color-border: #e4e4e7;
-  --color-border-light: #f4f4f5;
+  --color-primary: #A67B5B; /* Pure light brown */
+  --color-primary-hover: #8F6A4E;
+  --color-secondary: #C4A484;
+  --color-muted: #D1BFAe;
+  --color-border: #E8DCC8;
+  --color-border-light: #F4EBE1;
 
-  --color-bg-base: #ffffff;
-  --color-bg-muted: #f4f4f5;
-  --color-bg-dark: #18181b;
-  --color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --color-bg-base: #FFFFFF;
+  --color-bg-muted: #F4E8DB; /* Thuần nâu nhạt/beige ấm */
+  --color-bg-dark: #2C2621;
+  --color-bg-overlay: rgba(44, 38, 33, 0.6);
 
-  --color-text-primary: #09090b;
-  --color-text-secondary: #52525b;
-  --color-text-muted: #71717a;
-  --color-text-inverse: #fafafa;
+  --color-text-primary: #2C2019; /* Nâu đen để dễ đọc */
+  --color-text-secondary: #7A5F48;
+  --color-text-muted: #A67B5B;
+  --color-text-inverse: #F4E8DB;
 
   --color-accent-sale: #e11d48;
   --color-accent-new: #000000;

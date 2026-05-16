@@ -15,6 +15,7 @@ export interface Product {
   category: string;
   description: string;
   soldCount?: number;
+  colors?: string[];
 }
 
 export interface Category {

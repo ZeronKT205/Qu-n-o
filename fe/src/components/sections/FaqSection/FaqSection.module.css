@@ -1,0 +1,183 @@
+/* ============================================
+   FAQ SECTION — 1:1 Design Match
+   Tone: White / Light Brown
+   ============================================ */
+
+.section {
+  position: relative;
+  padding: var(--space-16) 0 var(--space-20);
+  background-color: var(--color-bg-base);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.contentWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-wide);
+  margin: 0;
+}
+
+/* --- Accordion Container --- */
+.accordionWrapper {
+  max-width: 900px;
+  margin: 0 auto var(--space-16);
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* --- Accordion Item --- */
+.accordionItem {
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.accordionItem:last-child {
+  border-bottom: none;
+}
+
+/* Trigger button */
+.accordionTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-5) var(--space-6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: background-color var(--transition-fast);
+}
+
+.accordionTrigger:hover {
+  background-color: var(--color-bg-muted);
+}
+
+.questionWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* Circle with Q */
+.qCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: #111111;
+  flex-shrink: 0;
+}
+
+.accordionQuestion {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+/* Plus/Minus icon */
+.accordionIcon {
+  flex-shrink: 0;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  color: #111111;
+  transition: transform var(--transition-base);
+}
+
+.accordionItem.active .accordionIcon {
+  transform: rotate(45deg); /* Optional if you want to turn + into x, but screenshot uses - */
+  display: none; /* We will swap icons in TSX */
+}
+
+/* Accordion content / answer panel */
+.accordionContent {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+  background-color: #ffffff;
+}
+
+.accordionItem.active .accordionContent {
+  grid-template-rows: 1fr;
+}
+
+.accordionInner {
+  overflow: hidden;
+}
+
+.answerWrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+/* Circle with A */
+.aCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-bg-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.accordionAnswer {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE — Tablet (768px+)
+   ============================================ */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-10);
+  }
+
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+}

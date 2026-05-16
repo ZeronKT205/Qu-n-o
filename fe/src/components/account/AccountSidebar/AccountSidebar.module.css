@@ -1,0 +1,219 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  height: 100%;
+}
+
+/* Profile Section */
+.profileSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 24px 32px 24px;
+  border-bottom: 1px solid #F0F0F0;
+  margin-bottom: 24px;
+}
+
+.avatarWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background-color: #E5E5E5;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profileName {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2C2019;
+  margin: 0;
+}
+
+.profileEmail {
+  font-size: 13px;
+  color: #7A5F48;
+  margin: 0;
+}
+
+.viewProfileLink {
+  font-size: 13px;
+  color: #7A5F48;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+  transition: color 0.2s;
+}
+
+.viewProfileLink:hover {
+  color: #2C2019;
+}
+
+.arrow {
+  font-size: 10px;
+}
+
+/* Navigation Menu */
+.navMenu {
+  margin-bottom: auto;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navItem {
+  padding: 0 16px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #2C2019;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.navLink:hover {
+  background-color: #F9F9F9;
+}
+
+.navLinkActive {
+  background-color: #F4E8DB; /* Mức màu tương ứng ảnh mẫu */
+  font-weight: 700;
+}
+
+.navLinkActive:hover {
+  background-color: #F4E8DB;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2C2019;
+  width: 20px;
+}
+
+/* Support Card */
+.supportCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 32px 24px 0;
+  padding: 16px;
+  background-color: #F9F9F9;
+  border-radius: 8px;
+}
+
+.supportIconWrap {
+  color: #2C2019;
+  flex-shrink: 0;
+}
+
+.supportInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.supportTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2C2019;
+  margin: 0 0 4px 0;
+}
+
+.supportHotline {
+  font-size: 14px;
+  color: #7A5F48;
+  margin: 0 0 4px 0;
+}
+
+.supportTime {
+  font-size: 12px;
+  color: #A67B5B;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .profileSection {
+    padding: 0 16px 24px 16px;
+  }
+  
+  .navItem {
+    padding: 0 8px;
+  }
+
+  .supportCard {
+    margin: 32px 16px 0;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    padding: 24px 0;
+  }
+  
+  .navList {
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    gap: 8px;
+  }
+  
+  .navItem {
+    padding: 0;
+    flex-shrink: 0;
+  }
+  
+  .navLink {
+    padding: 10px 16px;
+    background-color: #F0F0F0;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  
+  .navLinkActive {
+    background-color: #2C2019;
+    color: #FFFFFF;
+  }
+  
+  .navLinkActive .navIcon {
+    color: #FFFFFF;
+  }
+
+  .navIcon {
+    display: none; /* Hide icon on mobile horizontally scrollable tabs to save space */
+  }
+
+  .supportCard {
+    display: none; /* Hide support on mobile layout to save space, or can be moved to footer */
+  }
+}

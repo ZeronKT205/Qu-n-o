@@ -1,0 +1,156 @@
+/* ============================================
+   ADMIN TOPBAR
+   ============================================ */
+
+.topbar {
+  height: 64px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E8DCC8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #2C2019;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.hamburger:hover {
+  background-color: #F4E8DB;
+}
+
+.greeting {
+  font-size: 15px;
+  color: #2C2019;
+}
+
+.greeting strong {
+  font-weight: 700;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.iconBtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #2C2019;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.iconBtn:hover {
+  background-color: #F4E8DB;
+}
+
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 18px;
+  height: 18px;
+  background-color: #e11d48;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.avatarArea {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  color: #2C2019;
+}
+
+.avatarArea:hover {
+  background-color: #F4E8DB;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #A67B5B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatarText {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.avatarName {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 1025px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .topbar {
+    padding: 0 16px;
+  }
+
+  .greeting {
+    font-size: 13px;
+  }
+
+  .avatarName {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting {
+    display: none;
+  }
+}

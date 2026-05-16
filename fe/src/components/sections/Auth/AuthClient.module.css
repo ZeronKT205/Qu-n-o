@@ -1,0 +1,413 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-bg-base);
+}
+
+.leftPanel {
+  flex: 1;
+  background-color: #E1DAD2; /* Fallback color */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.leftPanelImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.leftPanelContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin-bottom: auto;
+  color: var(--color-text-primary);
+}
+
+.welcomeText {
+  margin-top: auto;
+  margin-bottom: 60px;
+}
+
+.welcomeText h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.welcomeText p {
+  font-size: 16px;
+  color: var(--color-text-primary);
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+.rightPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  position: relative;
+  max-width: 50%;
+  background-color: #FAFAFA;
+}
+
+.topRightAction {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.topRightAction button {
+  font-weight: 700;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font-size: 14px;
+}
+
+.flipContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1500px; /* Stronger perspective for better 3D */
+  padding: 20px 0;
+}
+
+.flipper {
+  width: 100%;
+  max-width: 440px;
+  position: relative;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+  height: 500px; /* Fixed height to prevent layout shift during flip */
+}
+
+.flipper.isFlipped {
+  transform: rotateY(180deg);
+}
+
+.frontFace, .backFace {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.frontFace {
+  z-index: 2;
+}
+
+.backFace {
+  transform: rotateY(180deg);
+}
+
+.footerFeatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 32px;
+  border-top: 1px solid var(--color-border-light);
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.featureIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-text-primary);
+}
+
+.featureText h4 {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.featureText p {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Form Shared Styles */
+.formHeader {
+  margin-bottom: 32px;
+}
+
+.formHeader h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.formHeader p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+}
+
+.formGroup {
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-text-primary);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 12px;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease;
+  background-color: var(--color-bg-base);
+}
+
+.input.hasIcon {
+  padding-left: 40px;
+}
+
+.input:focus {
+  border-color: var(--color-text-primary);
+  box-shadow: 0 0 0 1px var(--color-text-primary);
+}
+
+.forgotPassword {
+  display: block;
+  text-align: right;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  margin-bottom: 24px;
+  margin-top: -8px;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-base);
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.submitBtn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.submitBtn:active {
+  transform: scale(0.98);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--color-text-muted);
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.divider::before {
+  margin-right: 16px;
+}
+
+.divider::after {
+  margin-left: 16px;
+}
+
+.socialBtn {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: background-color 0.2s ease;
+}
+
+.socialBtn:hover {
+  background-color: var(--color-bg-muted);
+}
+
+@media (max-width: 1024px) {
+  .leftPanel {
+    display: none;
+  }
+  .rightPanel {
+    max-width: 100%;
+    padding: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rightPanel {
+    padding: 24px 20px;
+  }
+  
+  .flipper {
+    height: 460px;
+  }
+
+  .formHeader {
+    margin-bottom: 24px;
+  }
+
+  .formHeader h2 {
+    font-size: 22px;
+    margin-bottom: 4px;
+  }
+
+  .formHeader p {
+    font-size: 13px;
+  }
+
+  .formGroup {
+    margin-bottom: 16px;
+  }
+
+  .formGroup label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .input {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .input.hasIcon {
+    padding-left: 38px;
+  }
+
+  .inputIcon {
+    left: 10px;
+  }
+
+  .passwordToggle {
+    right: 10px;
+  }
+
+  .forgotPassword {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .submitBtn {
+    padding: 14px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .divider {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .socialBtn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .footerFeatures {
+    padding-top: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .feature {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,25 @@
+.heroBanner {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-bg-muted);
+  display: flex;
+  justify-content: center;
+}
+
+.heroImageContainer {
+  width: 100%;
+  position: relative;
+  aspect-ratio: 1846 / 693; /* Aspect ratio of hero_product.png */
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .heroImageContainer {
+    aspect-ratio: 16 / 9; /* Crop nicely on mobile */
+  }
+}

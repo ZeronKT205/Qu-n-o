@@ -39,13 +39,13 @@ Bạn chỉ cần copy/paste các prompt này cho các AI (như ChatGPT, Claude,
 ---
 
 ## 3. Prompt 3: Dành cho AI Frontend Developer (Lập trình viên FE)
-**Mục tiêu:** Viết code thực tế bằng Next.js (App Router) dựa trên thiết kế và nội dung đã có.
+**Mục tiêu:** Viết code thực tế bằng react dựa trên thiết kế và nội dung đã có.
 
 **Nội dung Prompt cần copy:**
-> "Bạn là một Senior Frontend Developer chuyên môn sâu về Next.js 14, React, và Performance Optimization (Tối ưu hiệu năng). Tôi đang xây dựng một Landing Page thương mại điện tử ngành thời trang (phong cách Levents).
+> "Bạn là một Senior Frontend Developer chuyên môn sâu về , React, và Performance Optimization (Tối ưu hiệu năng). Tôi đang xây dựng một Landing Page thương mại điện tử ngành thời trang (phong cách Levents).
 > 
 > Tôi sẽ cung cấp cho bạn Cấu trúc UI (từ Designer) và Nội dung (từ SEO Specialist). Nhiệm vụ của bạn là:
-> 1. Viết code Next.js (TypeScript, App Router) cho toàn bộ trang `page.tsx`.
+> 1. Viết code cho toàn bộ trang `page.tsx`.
 > 2. Sử dụng Vanilla CSS Modules (`.module.css`) để style, không sử dụng TailwindCSS.
 > 3. Áp dụng nghiêm ngặt các kỹ thuật tối ưu hóa Core Web Vitals: Sử dụng `next/image` cho mọi hình ảnh (có placeholder, lcp priority cho Hero banner), sử dụng semantic HTML (header, main, section, article), lazy load cho các component bên dưới màn hình đầu tiên (below the fold).
 > 4. Nhúng cấu trúc dữ liệu JSON-LD vào thẻ `<script type="application/ld+json">` để hỗ trợ SEO.

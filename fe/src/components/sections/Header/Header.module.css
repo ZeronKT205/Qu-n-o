@@ -10,7 +10,7 @@
 
 .header.scrolled {
   box-shadow: var(--shadow-header);
-  background-color: #ffffff;
+  background-color: var(--color-bg-base);
 }
 
 .header.visible {

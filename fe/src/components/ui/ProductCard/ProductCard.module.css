@@ -17,6 +17,7 @@
 
 .imageLink {
   display: block;
+  position: relative;
   width: 100%;
   height: 100%;
 }
@@ -96,83 +97,108 @@
   outline-offset: 2px;
 }
 
-/* --- Quick Add (Desktop Only) --- */
-.quickAdd {
+/* --- Hover Overlay --- */
+.hoverOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: var(--z-base);
+  pointer-events: none; /* Let the wishlist button be clickable, button inside will re-enable */
+}
+
+.card:hover .hoverOverlay {
+  opacity: 1;
+}
+
+/* Center Actions */
+.centerActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover .centerActions {
+  transform: translateY(0);
+}
+
+.bagCircle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.buyNowBtn {
+  background-color: #111111;
+  color: #ffffff;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.buyNowBtn:hover {
+  background-color: #ffffff;
+  color: #111111;
+}
+
+/* Bottom Features */
+.featuresRow {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: var(--space-3) 0;
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--letter-spacing-wide);
-  border: none;
-  cursor: pointer;
-  transform: translateY(100%);
-  transition: transform var(--transition-slow), background-color var(--transition-fast);
-  z-index: var(--z-base);
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.card:hover .quickAdd {
-  transform: translateY(0);
-}
-
-.quickAdd:hover {
-  background-color: var(--color-primary-hover);
-}
-
-.quickAdd:focus-visible {
-  outline: 2px solid var(--color-text-inverse);
-  outline-offset: -4px;
-  transform: translateY(0);
-}
-
-/* --- Featured Luxury Overlay --- */
-.featuredOverlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.55);
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  justify-content: center;
-  border: none;
-  cursor: pointer;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: var(--z-base);
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
+  padding: var(--space-4) 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.featuredText {
-  background-color: #fff;
-  color: var(--color-primary);
-  padding: var(--space-3) var(--space-6);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: var(--letter-spacing-wide);
-  border-radius: var(--radius-sm);
-  transform: translateY(15px);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card:hover .featuredOverlay {
-  opacity: 1;
-}
-
-.card:hover .featuredText {
+.card:hover .featuresRow {
   transform: translateY(0);
 }
 
-.featuredOverlay:focus-visible {
-  outline: 2px solid var(--color-text-inverse);
-  outline-offset: -4px;
-  opacity: 1;
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  color: #fff;
+  opacity: 0.9;
+}
+
+.featureItem span {
+  font-size: 10px;
+  text-align: center;
+}
+
+.featureDivider {
+  width: 1px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .info {
@@ -225,6 +251,20 @@
 .soldCount {
   font-size: 12px;
   color: var(--color-text-muted);
+}
+
+.colorDots {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.colorDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  display: inline-block;
 }
 
 /* Mobile: always show wishlist */

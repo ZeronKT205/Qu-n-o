@@ -1,0 +1,168 @@
+/* ============================================
+   ADMIN SIDEBAR
+   Nền tối, text sáng, style luxury minimalist
+   ============================================ */
+
+.backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background-color: #2C2621;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Logo --- */
+.logoArea {
+  padding: 24px 20px 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #F4E8DB;
+  text-decoration: none;
+}
+
+.logoSup {
+  font-size: 10px;
+  vertical-align: super;
+}
+
+/* --- Navigation --- */
+.nav {
+  flex: 1;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #B0A28E;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.navItem:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #F4E8DB;
+}
+
+.navItemActive {
+  background-color: #A67B5B;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+.navItemActive:hover {
+  background-color: #A67B5B;
+  color: #FFFFFF;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- Footer Support --- */
+.sidebarFooter {
+  padding: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: auto;
+}
+
+.supportCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.supportIcon {
+  color: #F4E8DB;
+  flex-shrink: 0;
+}
+
+.supportTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #F4E8DB;
+}
+
+.supportLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 13px;
+  color: #B0A28E;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.supportLink:hover {
+  color: #F4E8DB;
+}
+
+.supportArrow {
+  margin-left: auto;
+  font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Mobile: sidebar hidden by default, shown as drawer */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .backdrop {
+    display: block;
+  }
+}
+
+/* Tablet/Desktop: sidebar always visible */
+@media (min-width: 1025px) {
+  .sidebar {
+    transform: translateX(0);
+  }
+
+  .backdrop {
+    display: none !important;
+  }
+}

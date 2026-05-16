@@ -24,8 +24,9 @@
   background: #fff;
   border-radius: var(--radius-lg);
   width: 100%;
-  max-width: 960px;
-  max-height: 90vh;
+  max-width: 900px;
+  height: 90vh;
+  max-height: 650px; /* Giới hạn chiều cao tối đa để không bị quá khổ trên màn hình to */
   display: flex;
   overflow: hidden;
   position: relative;

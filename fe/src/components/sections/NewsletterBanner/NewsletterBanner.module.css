@@ -1,0 +1,132 @@
+.newsletterBanner {
+  width: 100%;
+  background-color: var(--color-bg-muted, #F4E8DB);
+  margin-top: var(--space-12);
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-8) var(--space-4);
+  gap: var(--space-6);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex: 1;
+}
+
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.middle {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+}
+
+.input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-right: none;
+  font-size: var(--font-size-sm);
+  outline: none;
+  background-color: var(--color-bg-base);
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+}
+
+.button {
+  padding: var(--space-3) var(--space-6);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  border: 1px solid var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.right {
+  width: 150px; /* Reduced width for decorative right side */
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/hero/hero-banner.png'); /* Fallback image */
+  background-size: cover;
+  background-position: center right;
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .middle {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .form {
+    max-width: 100%;
+  }
+
+  .right {
+    display: none; /* Hide decorative image on smaller screens */
+  }
+}

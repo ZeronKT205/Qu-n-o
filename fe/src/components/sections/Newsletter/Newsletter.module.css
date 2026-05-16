@@ -1,12 +1,12 @@
 /* ============================================
-   Newsletter - Compact Single-Row Layout
-   Matching reference: Left=form, Right=trust badges
+   Trust Badges (Formerly Newsletter) - Luxury Layout
    ============================================ */
 
 .section {
-  background-color: var(--color-bg-muted);
-  padding: var(--space-6) 0;
+  background-color: var(--color-bg-base);
+  padding: var(--space-8) 0;
   border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .container {
@@ -15,208 +15,76 @@
   padding: 0 var(--space-4);
 }
 
-/* --- Top Row: form + trust badges --- */
-.topRow {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-/* --- Newsletter Column --- */
-.newsletterCol {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.title {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text-primary);
-  letter-spacing: var(--letter-spacing-wide);
-  margin: 0;
-}
-
-.description {
-  font-size: var(--font-size-xs);
-  color: var(--color-text-muted);
-  margin: 0;
-}
-
-.form {
-  max-width: 300px;
-}
-
-.inputWrapper {
-  display: flex;
-  border: 1px solid var(--color-border);
-  background-color: var(--color-bg-base);
-  transition: border-color var(--transition-fast);
-  height: 36px;
-}
-
-.inputWrapper:focus-within {
-  border-color: var(--color-primary);
-}
-
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-.input {
-  flex: 1;
-  padding: 0 var(--space-3);
-  font-size: var(--font-size-xs);
-  font-family: inherit;
-  color: var(--color-text-primary);
-  border: none;
-  outline: none;
-  background: transparent;
-  min-width: 0;
-}
-
-.input::placeholder {
-  color: var(--color-text-muted);
-  font-size: var(--font-size-xs);
-}
-
-.input:disabled {
-  opacity: 0.6;
-}
-
-.submitBtn {
-  padding: 0 var(--space-3);
-  background-color: var(--color-primary);
-  color: var(--color-text-inverse);
-  border: none;
-  cursor: pointer;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
-  transition: background-color var(--transition-fast);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 36px;
-  touch-action: manipulation;
-}
-
-.submitBtn:hover:not(:disabled) {
-  background-color: var(--color-primary-hover);
-}
-
-.submitBtn:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-}
-
-.submitBtn:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-.spinner {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-top-color: white;
-  border-radius: 50%;
-  animation: spin 0.6s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.successMsg {
-  font-size: 11px;
-  color: var(--color-accent-success);
-  font-weight: var(--font-weight-medium);
-  display: block;
-  margin-top: var(--space-1);
-}
-
-/* --- Trust Badges Row (Gray SVG Icons) --- */
 .trustRow {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
+  gap: var(--space-8);
+  justify-items: center;
 }
 
 .trustItem {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: var(--space-2);
+  text-align: center;
+  gap: var(--space-3);
+  max-width: 200px;
+}
+
+.trustIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-bg-muted);
+  color: var(--color-text-primary);
+  transition: all var(--transition-normal);
+}
+
+.trustItem:hover .trustIconWrapper {
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  transform: translateY(-2px);
 }
 
 .trustIcon {
-  color: var(--color-text-muted);
-  flex-shrink: 0;
+  stroke-width: 1.5;
+}
+
+.trustContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
 }
 
 .trustTitle {
-  display: block;
-  font-size: 11px;
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
-  line-height: 1.3;
-  white-space: nowrap;
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
 }
 
 .trustDesc {
-  display: block;
-  font-size: 10px;
+  font-size: var(--font-size-xs);
   color: var(--color-text-muted);
-  line-height: 1.3;
-  white-space: nowrap;
+  line-height: 1.4;
 }
 
-/* ===== Desktop: Everything in one row ===== */
+/* ===== Desktop ===== */
 @media (min-width: 1024px) {
   .section {
-    padding: var(--space-5) 0;
+    padding: var(--space-10) 0;
   }
 
   .container {
     padding: 0 var(--space-10);
   }
 
-  .topRow {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-10);
-  }
-
-  .newsletterCol {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--space-4);
-    flex-shrink: 0;
-  }
-
-  .title {
-    font-size: var(--font-size-sm);
-    white-space: nowrap;
-  }
-
-  .description {
-    white-space: nowrap;
-  }
-
-  .form {
-    max-width: 240px;
-  }
-
   .trustRow {
-    grid-template-columns: repeat(4, auto);
-    gap: var(--space-8);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
   }
 }

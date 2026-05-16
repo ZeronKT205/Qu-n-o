@@ -1,0 +1,267 @@
+/* ============================================
+   SHOPPING PROCESS — 1:1 Design Match
+   Tone: White background, beige accents
+   ============================================ */
+
+.section {
+  position: relative;
+  padding: var(--space-16) 0 var(--space-12);
+  background-color: #FFFFFF;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.contentWrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-8);
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--letter-spacing-wide);
+  margin: 0;
+}
+
+/* --- Timeline Grid --- */
+.timelineWrapper {
+  position: relative;
+  margin-bottom: var(--space-10);
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-6);
+  z-index: 2;
+}
+
+/* --- Step Card --- */
+.stepCard {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  padding: var(--space-8) var(--space-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow var(--transition-base),
+              transform var(--transition-base);
+}
+
+.stepCard:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.stepIconWrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: var(--color-bg-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+}
+
+.stepIcon {
+  width: 30px;
+  height: 30px;
+  color: var(--color-text-muted);
+  stroke-width: 1.4;
+}
+
+.stepNumber {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.stepTitle {
+  font-size: var(--font-size-base);
+  font-weight: 800;
+  color: #111111;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-2);
+}
+
+.stepDivider {
+  width: 20px;
+  height: 2px;
+  background-color: #111111;
+  margin: var(--space-2) auto var(--space-4);
+}
+
+.stepDescription {
+  font-size: 13px;
+  color: #999999;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 180px;
+}
+
+/* --- Arrow Connector --- */
+.arrowConnector {
+  display: none;
+}
+
+/* --- Benefits Bar --- */
+.benefitsBar {
+  background-color: var(--color-bg-muted);
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  padding: var(--space-8) var(--space-6);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.benefitItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.benefitIcon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-3);
+}
+
+.benefitIcon svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-text-muted);
+  stroke-width: 1.3;
+}
+
+.benefitTitle {
+  font-size: 12px;
+  font-weight: 800;
+  color: #111111;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-1);
+}
+
+.benefitText {
+  font-size: 11px;
+  color: #999999;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 180px;
+}
+
+/* Divider line between benefit items on desktop */
+.benefitItem:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 1px;
+  background-color: var(--color-border-light);
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE — Desktop (1024px+)
+   ============================================ */
+@media (min-width: 1024px) {
+  .section {
+    padding: var(--space-16) 0;
+  }
+
+  .container {
+    padding: 0 var(--space-10);
+  }
+
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .timeline {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-8);
+  }
+
+  .stepCard {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  /* Dashed connector line */
+  .timelineWrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    border-top: 1px dashed var(--color-border);
+    z-index: 1;
+    transform: translateY(-50%);
+  }
+
+  .arrowConnector {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--color-border-light);
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+  }
+
+  .arrowConnector svg {
+    width: 12px;
+    height: 12px;
+    color: #111111;
+    stroke-width: 2;
+  }
+
+  /* Position arrows between columns */
+  .arrow1 { left: calc(25% - 14px); }
+  .arrow2 { left: calc(50% - 14px); }
+  .arrow3 { left: calc(75% - 14px); }
+
+  .benefitsBar {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    padding: var(--space-8) var(--space-8);
+  }
+
+  .benefitItem:not(:last-child)::after {
+    display: block;
+  }
+}

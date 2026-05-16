@@ -91,55 +91,46 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className={`${styles.logo} ${styles.hideLogoOnMobile}`} aria-label="Levents Clone - Trang chủ">
-            LEVENTS<sup className={styles.logoSup}>®</sup>
+            LEVENTS<sup className={styles.logoSup}>&deg;</sup>
           </Link>
 
           {/* Desktop Nav */}
           <nav className={styles.nav} aria-label="Điều hướng chính">
             <ul className={styles.navList}>
-              {NAV_LINKS.map((link) => (
-                <li 
-                  key={link.id} 
-                  className={styles.navItem}
-                  onMouseEnter={() => link.hasDropdown && setIsDropdownOpen(true)}
-                  onMouseLeave={() => link.hasDropdown && setIsDropdownOpen(false)}
+              <li className={styles.navItem}>
+                <Link href="/#mix-styles" className={styles.navLink}>PHONG CÁCH</Link>
+              </li>
+              <li 
+                className={styles.navItem}
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
+                <button 
+                  className={styles.navLink}
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  aria-expanded={isDropdownOpen}
                 >
-                  <button 
-                    className={styles.navLink}
-                    onClick={() => {
-                      if (link.hasDropdown) {
-                        setIsDropdownOpen(!isDropdownOpen);
-                      } else {
-                        scrollToSection(link.id);
-                      }
-                    }}
-                    aria-expanded={link.hasDropdown ? isDropdownOpen : undefined}
-                  >
-                    {link.label}
-                    {link.hasDropdown && <span className={styles.dropdownIcon}>▾</span>}
-                  </button>
+                  <Link href="/products" style={{ color: 'inherit', textDecoration: 'none' }}>SẢN PHẨM ▾</Link>
+                </button>
 
-                  {link.hasDropdown && isDropdownOpen && (
-                    <div className={styles.dropdownMenu}>
-                      <button 
+                {isDropdownOpen && (
+                  <div className={styles.dropdownMenu}>
+                    <Link href="/products" className={styles.dropdownItem}>Tất cả</Link>
+                    {CATEGORIES.map(cat => (
+                      <Link 
+                        key={cat.id} 
+                        href={`/products?category=${cat.slug}`}
                         className={styles.dropdownItem}
-                        onClick={() => handleCategorySelect('all')}
                       >
-                        Tất cả
-                      </button>
-                      {CATEGORIES.map(cat => (
-                        <button 
-                          key={cat.id} 
-                          className={styles.dropdownItem}
-                          onClick={() => handleCategorySelect(cat.slug)}
-                        >
-                          {cat.name}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </li>
-              ))}
+                        {cat.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </li>
+              <li className={styles.navItem}>
+                <Link href="/#promos" className={styles.navLink}>VOUCHER</Link>
+              </li>
             </ul>
           </nav>
 

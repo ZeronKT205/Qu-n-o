@@ -7,8 +7,8 @@ import CategoryPills from '@/components/sections/CategoryPills/CategoryPills';
 import ProductGrid from '@/components/sections/ProductGrid/ProductGrid';
 import PromoBanners from '@/components/sections/PromoBanners/PromoBanners';
 import CollectionShowcase from '@/components/sections/CollectionShowcase/CollectionShowcase';
-import Newsletter from '@/components/sections/Newsletter/Newsletter';
-import BrandPartners from '@/components/sections/BrandPartners/BrandPartners';
+import ShoppingProcess from '@/components/sections/ShoppingProcess/ShoppingProcess';
+import FaqSection from '@/components/sections/FaqSection/FaqSection';
 import Footer from '@/components/sections/Footer/Footer';
 
 /* ============================================
@@ -108,11 +108,11 @@ export default function HomePage() {
         {/* Collection Showcase */}
         <div id="collections"><CollectionShowcase /></div>
 
-        {/* Brand Partners */}
-        <div id="brands"><BrandPartners /></div>
+        {/* Shopping Process */}
+        <div id="shopping-process"><ShoppingProcess /></div>
 
-        {/* Newsletter CTA */}
-        <div id="newsletter"><Newsletter /></div>
+        {/* FAQ + CTA */}
+        <div id="faq"><FaqSection /></div>
       </main>
 
       {/* Footer */}

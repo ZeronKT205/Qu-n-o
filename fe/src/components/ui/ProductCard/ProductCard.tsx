@@ -62,24 +62,52 @@ export default function ProductCard({ product, onClick, isFeatured = false }: Pr
           </svg>
         </button>
 
-        {/* Overlay based on isFeatured */}
-        {isFeatured ? (
-          <button 
-            className={styles.featuredOverlay} 
-            aria-label={`Mua ngay ${product.name}`}
-            onClick={(e) => { e.stopPropagation(); onClick?.(); }}
-          >
-            <span className={styles.featuredText}>MUA NGAY</span>
-          </button>
-        ) : (
-          <button 
-            className={styles.quickAdd} 
-            aria-label={`Thêm ${product.name} vào giỏ hàng`}
-            onClick={(e) => { e.stopPropagation(); onClick?.(); }}
-          >
-            XEM NHANH
-          </button>
-        )}
+        {/* Hover Overlay */}
+        <div className={styles.hoverOverlay}>
+          {/* Center Actions */}
+          <div className={styles.centerActions}>
+            <div className={styles.bagCircle}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
+            </div>
+            <button 
+              className={styles.buyNowBtn}
+              onClick={(e) => { e.stopPropagation(); onClick?.(); }}
+              aria-label={`Mua ngay ${product.name}`}
+            >
+              MUA NGAY
+            </button>
+          </div>
+
+          {/* Bottom Features */}
+          <div className={styles.featuresRow}>
+            <div className={styles.featureItem}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>Chất liệu cao cấp</span>
+            </div>
+            <div className={styles.featureDivider} />
+            <div className={styles.featureItem}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M4 12h16M4 8h16M4 16h16" strokeDasharray="4 4" />
+              </svg>
+              <span>Thoáng mát</span>
+            </div>
+            <div className={styles.featureDivider} />
+            <div className={styles.featureItem}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+              <span>Bền bỉ</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Product Info */}
@@ -103,12 +131,14 @@ export default function ProductCard({ product, onClick, isFeatured = false }: Pr
               <span className={styles.originalPrice}>{formatPrice(product.originalPrice)}</span>
             )}
           </div>
-          {product.soldCount && (
-            <span className={styles.soldCount}>
-              Đã bán {product.soldCount >= 1000 ? (product.soldCount / 1000).toFixed(1).replace('.0', '') + 'k' : product.soldCount}
-            </span>
-          )}
         </div>
+        {product.colors && product.colors.length > 0 && (
+          <div className={styles.colorDots}>
+            {product.colors.map((color, idx) => (
+              <span key={idx} className={styles.colorDot} style={{ backgroundColor: color }} aria-label={`Màu ${color}`} />
+            ))}
+          </div>
+        )}
       </div>
     </article>
   );
