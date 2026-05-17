@@ -19,7 +19,5 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .heroImageContainer {
-    aspect-ratio: 16 / 9; /* Crop nicely on mobile */
-  }
+  /* Let the container maintain the original aspect-ratio of 1846 / 693 to scale down proportionally without clipping the text */
 }

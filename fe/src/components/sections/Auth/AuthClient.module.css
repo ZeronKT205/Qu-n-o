@@ -106,7 +106,7 @@
   position: relative;
   transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   transform-style: preserve-3d;
-  height: 500px; /* Fixed height to prevent layout shift during flip */
+  height: 580px; /* Fixed height to prevent layout shift during flip, sized for taller Register form */
 }
 
 .flipper.isFlipped {
@@ -337,7 +337,7 @@
   }
   
   .flipper {
-    height: 460px;
+    height: 540px;
   }
 
   .formHeader {

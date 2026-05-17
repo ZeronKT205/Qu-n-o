@@ -1,0 +1,490 @@
+/* ============================================
+   ADMIN REPORTS PAGE
+   ============================================ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+}
+
+/* --- Header Section --- */
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-size: 14px;
+  color: #6B7280;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.btnExport, .datePicker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #FFFFFF;
+  color: #4B5563;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  height: 38px;
+  padding: 0 16px;
+}
+
+.btnExport:hover, .datePicker:hover {
+  background-color: #F9FAFB;
+}
+
+/* --- Stat Cards --- */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.statCard {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.statIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.statIconWrap.total { background-color: #FDF8F3; color: #A67B5B; }
+.statIconWrap.transfer { background-color: #DCFCE7; color: #16A34A; }
+.statIconWrap.cash { background-color: #DBEAFE; color: #2563EB; }
+.statIconWrap.pending { background-color: #FEF9C3; color: #D97706; }
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4B5563;
+  margin: 0;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.statTrend {
+  font-size: 12px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.statTrend.up { color: #10B981; }
+.statTrend.down { color: #EF4444; }
+.statTrend.neutral { color: #6B7280; }
+
+/* Date picker dropdown */
+.datePickerDropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 200;
+  padding: 16px;
+  min-width: 260px;
+}
+
+.datePickerRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.datePickerLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.dateInput {
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+  font-family: inherit;
+}
+.dateInput:focus { border-color: #A67B5B; }
+
+.datePickerQuickBtns {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.quickBtn {
+  flex: 1;
+  padding: 6px 4px;
+  background: #F3F4F6;
+  color: #374151;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.quickBtn:hover { background: #E5E7EB; }
+
+.cancelBtn {
+  padding: 7px 14px;
+  background: #fff;
+  color: #374151;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.cancelBtn:hover { background: #F9FAFB; }
+
+.applyBtn {
+  padding: 7px 14px;
+  background: #2C2621;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.applyBtn:hover { background: #A67B5B; }
+
+.statTrendSub {
+  font-size: 11px;
+  color: #9CA3AF;
+  font-weight: 400;
+}
+
+/* --- Charts Sections --- */
+.card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.cardFilter {
+  font-size: 13px;
+  color: #4B5563;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 4px;
+  padding: 4px 8px;
+  outline: none;
+}
+
+.cardValue {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.cardValueWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cardViewAll {
+  font-size: 13px;
+  color: #A67B5B;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.chartContainer {
+  width: 100%;
+  height: 240px; /* Base height for charts */
+}
+
+/* Grids */
+.gridSection1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.gridSection2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+}
+
+/* Custom Legend for Donut */
+.customLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.legendLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4B5563;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legendRight {
+  font-weight: 600;
+  color: #111827;
+  display: flex;
+  gap: 8px;
+}
+
+.legendCount {
+  color: #6B7280;
+  font-weight: 400;
+}
+
+/* Top Customers List */
+.customerList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.customerItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.customerLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.customerAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.customerAvatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.customerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.customerName {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.customerOrders {
+  font-size: 12px;
+  color: #6B7280;
+}
+
+.customerTotal {
+  font-size: 13px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* Products Table */
+.productsTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.productsTable th {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4B5563;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.productsTable td {
+  padding: 16px;
+  font-size: 14px;
+  color: #111827;
+  border-bottom: 1px solid #F3F4F6;
+  vertical-align: middle;
+}
+
+.productsTable tr:last-child td {
+  border-bottom: none;
+}
+
+.productNameCell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.productThumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #F3F4F6;
+}
+
+.productThumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .gridSection2 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .gridSection2 > *:nth-child(1) {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gridSection1 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerSection {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .headerActions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .gridSection2 {
+    grid-template-columns: 1fr;
+  }
+  .gridSection2 > *:nth-child(1) {
+    grid-column: span 1;
+  }
+
+  /* Make table scrollable horizontally on mobile */
+  .tableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -20px;
+    padding: 0 20px;
+  }
+  
+  .productsTable th, .productsTable td {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}

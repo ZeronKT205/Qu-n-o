@@ -45,7 +45,30 @@
 
 .filterBarMiddle {
   display: flex;
-  gap: var(--space-4);
+  justify-content: center;
+  align-items: center;
+}
+
+.luxurySlogan {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #c5a880; /* Premium luxury gold tone */
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  white-space: nowrap;
+}
+
+.luxurySlogan::before,
+.luxurySlogan::after {
+  content: '';
+  height: 1px;
+  width: 30px;
+  background-color: var(--color-border);
+  display: inline-block;
 }
 
 .dropdownBtn {
@@ -132,6 +155,15 @@
 
 .categoryCount {
   color: var(--color-text-muted);
+}
+
+.categoryActive {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary) !important;
+}
+
+.categoryActive .categoryName {
+  color: var(--color-primary);
 }
 
 /* Size */
@@ -354,5 +386,144 @@
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-2);
+  }
+}
+
+/* --- SEARCH BOX --- */
+.searchBox {
+  position: relative;
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+.searchInput {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  outline: none;
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  transition: border-color 0.2s ease-in-out;
+}
+
+.searchInput:focus {
+  border-color: var(--color-primary);
+}
+
+/* Mobile Sidebar Header */
+.mobileSidebarHeader {
+  display: none;
+}
+
+/* --- MOBILE DRAWER SPECIFICS --- */
+@media (max-width: 768px) {
+  .sidebarMobileActive {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background: var(--color-bg-base);
+    z-index: 1000;
+    padding: var(--space-6);
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+    overflow-y: auto;
+    gap: var(--space-6);
+    animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+
+  .mobileSidebarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-2);
+  }
+
+  .mobileCloseBtn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    color: var(--color-text-primary);
+    padding: var(--space-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* --- LIST VIEW LAYOUT --- */
+.listView {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--space-6) !important;
+  width: 100% !important;
+}
+
+.listView :global(article) {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: var(--space-6) !important;
+  align-items: center !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  padding-bottom: var(--space-6) !important;
+  width: 100% !important;
+}
+
+.listView :global(article):last-child {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+/* Image container in list view */
+.listView :global(article) > div:first-child {
+  width: 180px !important;
+  height: 240px !important;
+  aspect-ratio: 3/4 !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+}
+
+/* Info container in list view */
+.listView :global(article) > div:last-child {
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--space-2) !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  text-align: left !important;
+}
+
+/* Title text */
+.listView :global(article) h3 {
+  font-size: var(--font-size-lg) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 575px) {
+  .listView :global(article) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: var(--space-4) !important;
+  }
+  
+  .listView :global(article) > div:first-child {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3/4 !important;
   }
 }

@@ -10,7 +10,7 @@ export interface Product {
   originalPrice?: number;
   image: string;
   imageHover?: string;
-  badge?: 'new' | 'sale';
+  badge?: 'new' | 'sale' | 'hot' | 'bestseller';
   discountPercent?: number;
   category: string;
   description: string;

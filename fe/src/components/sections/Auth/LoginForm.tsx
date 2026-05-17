@@ -1,15 +1,57 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/store/AuthContext';
 import styles from './AuthClient.module.css';
 
 export default function LoginForm() {
+  const router = useRouter();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    try {
+      const user = await login(email, password);
+      // Redirect based on role — admin goes to dashboard, customer to home
+      if (user.role === 'admin' || user.role === 'super_admin') {
+        router.push('/admin');
+      } else {
+        router.push('/');
+      }
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Đăng nhập thất bại');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.formHeader}>
         <h2>Đăng Nhập</h2>
         <p>Chào mừng bạn quay lại với Levents</p>
       </div>
+
+      {error && (
+        <div style={{
+          background: '#FEF2F2',
+          border: '1px solid #FECACA',
+          color: '#DC2626',
+          padding: '10px 14px',
+          borderRadius: '8px',
+          fontSize: '13px',
+          marginBottom: '8px',
+        }}>
+          {error}
+        </div>
+      )}
 
       <div className={styles.formGroup}>
         <label htmlFor="login-email">Email</label>
@@ -23,7 +65,10 @@ export default function LoginForm() {
             type="email"
             className={`${styles.input} ${styles.hasIcon}`}
             placeholder="Nhập địa chỉ email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
+            disabled={loading}
           />
         </div>
       </div>
@@ -40,7 +85,10 @@ export default function LoginForm() {
             type={showPassword ? "text" : "password"}
             className={`${styles.input} ${styles.hasIcon}`}
             placeholder="Nhập mật khẩu"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
+            disabled={loading}
           />
           <button 
             type="button"
@@ -65,13 +113,13 @@ export default function LoginForm() {
 
       <a href="#" className={styles.forgotPassword}>Quên mật khẩu?</a>
 
-      <button type="submit" className={styles.submitBtn}>
-        Đăng Nhập
+      <button type="submit" className={styles.submitBtn} disabled={loading}>
+        {loading ? 'Đang xử lý...' : 'Đăng Nhập'}
       </button>
 
       <div className={styles.divider}>Hoặc đăng nhập với</div>
 
-      <button type="button" className={styles.socialBtn}>
+      <button type="button" className={styles.socialBtn} disabled={loading}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -83,3 +131,4 @@ export default function LoginForm() {
     </form>
   );
 }
+

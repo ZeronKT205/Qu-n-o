@@ -1,18 +1,36 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/store/AuthContext';
 import styles from './AuthClient.module.css';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 
 export default function AuthClient() {
   const [isLogin, setIsLogin] = useState(true);
+  const router = useRouter();
+  const { user, isAuthenticated, isLoading } = useAuth();
+
+  useEffect(() => {
+    if (!isLoading && isAuthenticated && user) {
+      if (user.role === 'admin' || user.role === 'super_admin') {
+        router.push('/admin');
+      } else {
+        router.push('/');
+      }
+    }
+  }, [isLoading, isAuthenticated, user, router]);
 
   const toggleForm = () => {
     setIsLogin((prev) => !prev);
   };
+
+  if (isLoading || isAuthenticated) {
+    return null; // Return nothing while redirecting or loading
+  }
 
   return (
     <div className={styles.container}>

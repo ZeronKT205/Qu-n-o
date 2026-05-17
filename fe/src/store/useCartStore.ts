@@ -4,12 +4,13 @@ import { persist } from 'zustand/middleware';
 export interface CartItem {
   id: string; // combination of productId-color-size
   productId: string;
+  variantId?: string; // backend variant UUID, for order creation
   name: string;
   price: number;
   originalPrice?: number;
   image: string;
   color: string;
-  colorName?: string; // Optional name for display
+  colorName?: string;
   size: string;
   quantity: number;
 }

@@ -97,10 +97,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-bg-muted);
+  background-color: #ffffff;
+  border: 1px solid #f0f0f0;
   border-radius: var(--radius-full);
   overflow: hidden;
-  transition: background-color var(--transition-base), box-shadow var(--transition-base);
+  transition: all var(--transition-base);
 }
 
 .iconImage {
@@ -112,8 +113,9 @@
 }
 
 .pill:hover .iconWrapper {
-  background-color: var(--color-border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-color: #e5e5e5;
+  transform: translateY(-2px);
 }
 
 .pill:hover .iconImage {

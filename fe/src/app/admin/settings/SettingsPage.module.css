@@ -1,0 +1,409 @@
+/* ============================================
+   ADMIN SETTINGS PAGE
+   ============================================ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 24px;
+}
+
+/* --- Header Section --- */
+.headerSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+}
+
+.pageSubtitle {
+  font-size: 14px;
+  color: #6B7280;
+  margin: 0;
+}
+
+/* --- Layout Grid --- */
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* --- Sidebar Tabs --- */
+.settingsNav {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 16px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  color: #4B5563;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.navItem:hover {
+  background-color: #F9FAFB;
+  color: #111827;
+}
+
+.navItemActive {
+  background-color: #FDF8F3;
+  color: #8F6A4E;
+  font-weight: 600;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* --- Main Content Panel --- */
+.mainPanel {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  min-height: 500px;
+}
+
+.panelTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2C2019;
+  margin: 0 0 8px 0;
+}
+
+.panelSubtitle {
+  font-size: 14px;
+  color: #6B7280;
+  margin: 0;
+}
+
+.panelHeader {
+  border-bottom: 1px solid #F3F4F6;
+  padding-bottom: 20px;
+}
+
+/* --- Form Controls --- */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.input, .select, .textarea {
+  width: 100%;
+  height: 42px;
+  padding: 0 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+  background-color: #FFFFFF;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.textarea {
+  height: auto;
+  padding: 12px 16px;
+  resize: vertical;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+  border-color: #8F6A4E;
+  box-shadow: 0 0 0 1px #8F6A4E;
+}
+
+.helperText {
+  font-size: 12px;
+  color: #9CA3AF;
+  margin-top: 4px;
+}
+
+/* --- Actions Bar --- */
+.actionBar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  border-top: 1px solid #F3F4F6;
+  padding-top: 24px;
+  margin-top: auto;
+}
+
+.btnCancel {
+  height: 42px;
+  padding: 0 24px;
+  background-color: #FFFFFF;
+  color: #4B5563;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnCancel:hover {
+  background-color: #F9FAFB;
+}
+
+.btnSave {
+  height: 42px;
+  padding: 0 24px;
+  background-color: #8F6A4E;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnSave:hover {
+  background-color: #7A5F48;
+}
+
+/* --- Toggle / Switch --- */
+.switchRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.switchInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.switchLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.switchDesc {
+  font-size: 13px;
+  color: #6B7280;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #E5E7EB;
+  transition: .3s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.switch input:checked + .slider {
+  background-color: #8F6A4E;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* --- Banners Section --- */
+.bannerGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.bannerCard {
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bannerPreview {
+  width: 100%;
+  height: 140px;
+  border-radius: 6px;
+  background-color: #F3F4F6;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bannerPreviewImg {
+  object-fit: cover;
+}
+
+.bannerActions {
+  display: flex;
+  gap: 8px;
+}
+
+.btnUpload {
+  flex: 1;
+  height: 36px;
+  font-size: 13px;
+  font-weight: 500;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  color: #374151;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btnDelete {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FEE2E2;
+  color: #EF4444;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* --- Staff Table --- */
+.staffTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.staffTable th {
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4B5563;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.staffTable td {
+  padding: 16px;
+  font-size: 14px;
+  color: #111827;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge.super {
+  background-color: #FDF8F3;
+  color: #8F6A4E;
+}
+
+.badge.admin {
+  background-color: #E0F2FE;
+  color: #0369A1;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .layoutGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .bannerGrid {
+    grid-template-columns: 1fr;
+  }
+  .mainPanel {
+    padding: 20px;
+  }
+}

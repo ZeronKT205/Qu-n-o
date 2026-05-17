@@ -1,0 +1,28 @@
+# dependencies
+node_modules/
+
+# env files
+.env
+.env.*
+!.env.example
+
+# build output
+dist/
+build/
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# misc
+.DS_Store
+*.pem
+
+# typescript
+*.tsbuildinfo
+
+# utility scripts (not part of main codebase)
+gen_hash.js
+run_sql.js
+seed_users_js.js
